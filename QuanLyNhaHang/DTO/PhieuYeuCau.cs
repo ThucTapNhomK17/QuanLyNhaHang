@@ -25,7 +25,7 @@ namespace QuanLyKhachHang.DTO
         {
             Mapyc = row["mapyc"].ToString();
             //Ngaylap = (DateTime?)row["ngaylap"];
-            var ngaylapTemp = row["Ngaylap"];
+            var ngaylapTemp = row["ngaylap"];
             if (ngaylapTemp.ToString() != "")
                 Ngaylap = (DateTime?)ngaylapTemp;
             Username = row["username"].ToString();
