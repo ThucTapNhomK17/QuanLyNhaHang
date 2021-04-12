@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace QuanLyKhachHang
 {
+    
     public partial class Dashboard : Form
     {
         int panelWidth;
