@@ -13,7 +13,7 @@ namespace QuanLyKhachHang.DTO
         {
             Maban = maban;
             Socho = socho;
-            Mapyc = mapyc;
+            Mapyc = mapyc; //ma phieu yeu cau
         }
 
         public Table(DataRow row)
