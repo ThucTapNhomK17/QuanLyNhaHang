@@ -1,5 +1,6 @@
 
  USE [master]
+
 GO
 /****** Object:  Database [QUANLYNHAHANG]    Script Date: 23/03/2021 8:06:38 CH ******/
 CREATE DATABASE [QUANLYNHAHANG]
