@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKhachHang.DAO
 {
+
     public class PhieuYeuCauDAO
     {
         private static PhieuYeuCauDAO instance;
