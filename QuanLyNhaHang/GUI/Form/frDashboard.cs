@@ -1,4 +1,5 @@
 ﻿using BunifuAnimatorNS;
+using QuanLyKhachHang.DAO;
 using QuanLyKhachHang.GUI.UserControls;
 using QuanLyKhachHang.GUI.UserControls.DanhMuc;
 using QuanLyKhachHang.GUI.UserControls.DoiTac;
@@ -18,8 +19,8 @@ namespace QuanLyKhachHang
 {
     public partial class frDashboard : Form
     {
-        int panelWidth;
-        bool isCollapse;
+
+        
         public frDashboard()
         {
             InitializeComponent();
@@ -28,8 +29,16 @@ namespace QuanLyKhachHang
             timerDongHo.Start();
             UC_TongQuan uctq = new UC_TongQuan();
             addControltoPanel(uctq);
-        }
+            lblHoTen.Text = AccountDAO.hoten;
+            lblPhanQuyen.Text = AccountDAO.phanquyen;
+            phanQuyen();
 
+        }
+        #region Giao diện
+
+
+        int panelWidth;
+        bool isCollapse;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (isCollapse)
@@ -62,7 +71,7 @@ namespace QuanLyKhachHang
         private void timerDongHo_Tick(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            lblTime.Text = dt.ToString("HH:MM:ss");
+            lblTime.Text = dt.ToString("HH:mm:ss");
         }
         private void moveSidePanel(Control btn)
         {
@@ -110,8 +119,6 @@ namespace QuanLyKhachHang
         private void btnDoiTac_Click(object sender, EventArgs e)
         {
             moveSidePanel(btnDoiTac);
-            //UC_DoiTac ucdt = new UC_DoiTac();
-            //addControltoPanel(ucdt);
             UC_DoiTacNew ucdt = new UC_DoiTacNew();
             addControltoPanel(ucdt);
 
@@ -132,6 +139,13 @@ namespace QuanLyKhachHang
             
 
         }
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            using (frDoiMK f = new frDoiMK())
+            {
+                f.ShowDialog();
+            }
+        }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
@@ -147,8 +161,30 @@ namespace QuanLyKhachHang
                 this.Close();
         }
 
-      
 
-       
+
+
+        #endregion
+
+        void phanQuyen()
+        {
+            switch (AccountDAO.phanquyen.Trim())
+            {
+                case "Thu ngân":
+                    btnNhapHang.Visible = false;
+                    btnDanhMuc.Visible = false;
+                    btnDoiTac.Visible = false;
+                    btnKhuyenMai.Visible = false;
+                    btnThongKe.Visible = false;
+                    break;
+                case "Đầu bếp":
+                    btnBanHang.Visible = false;
+                    btnDanhMuc.Visible = false;
+                    btnDoiTac.Visible = false;
+                    btnKhuyenMai.Visible = false;
+                    btnThongKe.Visible = false;
+                    break;
+            }
+        }
     }
 }

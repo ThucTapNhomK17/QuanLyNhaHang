@@ -40,10 +40,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnProfile = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblPhanQuyen = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblHoTen = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -93,7 +94,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(100, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 23);
+            this.label2.Size = new System.Drawing.Size(89, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Restaurant";
             // 
@@ -120,7 +121,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(56, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 23);
+            this.label1.Size = new System.Drawing.Size(73, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Penguin";
             // 
@@ -152,7 +153,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(188)))));
             this.label3.Location = new System.Drawing.Point(16, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(559, 26);
+            this.label3.Size = new System.Drawing.Size(447, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Penguin Restaurant ♥ Hoàng Quốc Việt, Cầu Giấy, Hà Nội\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,16 +177,33 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(188)))));
+            this.panel4.Controls.Add(this.btnProfile);
             this.panel4.Controls.Add(this.lblTime);
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.lblPhanQuyen);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.lblHoTen);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(215, 48);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1151, 92);
             this.panel4.TabIndex = 2;
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProfile.FlatAppearance.BorderSize = 0;
+            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfile.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfile.ForeColor = System.Drawing.Color.White;
+            this.btnProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnProfile.Image")));
+            this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.Location = new System.Drawing.Point(1020, 24);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(50, 43);
+            this.btnProfile.TabIndex = 5;
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // lblTime
             // 
@@ -195,20 +213,20 @@
             this.lblTime.ForeColor = System.Drawing.Color.White;
             this.lblTime.Location = new System.Drawing.Point(922, 35);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(114, 27);
+            this.lblTime.Size = new System.Drawing.Size(92, 22);
             this.lblTime.TabIndex = 1;
             this.lblTime.Text = "HH:MM:SS";
             // 
-            // label7
+            // lblPhanQuyen
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(181, 46);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 27);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Quản lý";
+            this.lblPhanQuyen.AutoSize = true;
+            this.lblPhanQuyen.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhanQuyen.ForeColor = System.Drawing.Color.White;
+            this.lblPhanQuyen.Location = new System.Drawing.Point(181, 46);
+            this.lblPhanQuyen.Name = "lblPhanQuyen";
+            this.lblPhanQuyen.Size = new System.Drawing.Size(73, 22);
+            this.lblPhanQuyen.TabIndex = 1;
+            this.lblPhanQuyen.Text = "Quản lý";
             // 
             // label5
             // 
@@ -217,20 +235,20 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(89, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 27);
+            this.label5.Size = new System.Drawing.Size(80, 22);
             this.label5.TabIndex = 1;
             this.label5.Text = "Chức vụ:";
             // 
-            // label6
+            // lblHoTen
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(158, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 27);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Nguyễn Văn A";
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.ForeColor = System.Drawing.Color.White;
+            this.lblHoTen.Location = new System.Drawing.Point(158, 18);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(122, 22);
+            this.lblHoTen.TabIndex = 1;
+            this.lblHoTen.Text = "Nguyễn Văn A";
             // 
             // label4
             // 
@@ -239,7 +257,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(63, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 27);
+            this.label4.Size = new System.Drawing.Size(85, 22);
             this.label4.TabIndex = 1;
             this.label4.Text = "Xin chào,";
             // 
@@ -259,6 +277,7 @@
             // pnlControl
             // 
             this.pnlControl.BackColor = System.Drawing.Color.White;
+            this.pnlControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControl.Location = new System.Drawing.Point(215, 140);
             this.pnlControl.Name = "pnlControl";
@@ -286,13 +305,14 @@
             // 
             // btnDangXuat
             // 
+            this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDangXuat.FlatAppearance.BorderSize = 0;
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
             this.btnDangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.Location = new System.Drawing.Point(11, 598);
+            this.btnDangXuat.Location = new System.Drawing.Point(12, 589);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(203, 60);
             this.btnDangXuat.TabIndex = 3;
@@ -302,6 +322,7 @@
             // 
             // btnNhapHang
             // 
+            this.btnNhapHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNhapHang.FlatAppearance.BorderSize = 0;
             this.btnNhapHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapHang.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,6 +339,7 @@
             // 
             // btnDanhMuc
             // 
+            this.btnDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDanhMuc.FlatAppearance.BorderSize = 0;
             this.btnDanhMuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDanhMuc.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -334,13 +356,14 @@
             // 
             // btnThongKe
             // 
+            this.btnThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThongKe.FlatAppearance.BorderSize = 0;
             this.btnThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongKe.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongKe.ForeColor = System.Drawing.Color.White;
             this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(11, 532);
+            this.btnThongKe.Location = new System.Drawing.Point(12, 523);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(203, 60);
             this.btnThongKe.TabIndex = 3;
@@ -350,6 +373,7 @@
             // 
             // btnKhuyenMai
             // 
+            this.btnKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKhuyenMai.FlatAppearance.BorderSize = 0;
             this.btnKhuyenMai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKhuyenMai.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -366,6 +390,7 @@
             // 
             // btnDoiTac
             // 
+            this.btnDoiTac.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDoiTac.FlatAppearance.BorderSize = 0;
             this.btnDoiTac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoiTac.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -382,6 +407,7 @@
             // 
             // btnBanHang
             // 
+            this.btnBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBanHang.FlatAppearance.BorderSize = 0;
             this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBanHang.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,6 +424,7 @@
             // 
             // btnTongQuan
             // 
+            this.btnTongQuan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTongQuan.FlatAppearance.BorderSize = 0;
             this.btnTongQuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTongQuan.Font = new System.Drawing.Font("K2D SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -457,9 +484,9 @@
         private System.Windows.Forms.Button btnCollapse;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPhanQuyen;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer1;
@@ -474,5 +501,6 @@
         private System.Windows.Forms.Button btnDoiTac;
         private System.Windows.Forms.Button btnTongQuan;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Button btnProfile;
     }
 }

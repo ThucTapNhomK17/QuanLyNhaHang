@@ -23,6 +23,7 @@ namespace QuanLyKhachHang.DTO
             Soluong = soluong;
             Thanhtien = thanhtien;
         }
+
         public ChiTietDatMon(DataRow row)
         {
             Mapyc = row["mapyc"].ToString();

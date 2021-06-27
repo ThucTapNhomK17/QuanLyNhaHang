@@ -25,13 +25,17 @@ namespace QuanLyKhachHang.DAO
         public List<Table> loadTableList()
         {
             List<Table> tableList = new List<Table>();
-            DataTable data = DataProvider.Instance.executeQuery("exec GetTableList");
+            DataTable data = DataProvider.Instance.executeQuery("select * from BANAN");
             foreach (DataRow item in data.Rows)
             {
                 Table table = new Table(item);
                 tableList.Add(table);
             }
             return tableList;
+        }
+        public string getMaBanbyPYC(string mapyc)
+        {
+            return DataProvider.Instance.executeScalar("select maban from banan where mapyc = '"+mapyc+"'").ToString();
         }
     }
 }

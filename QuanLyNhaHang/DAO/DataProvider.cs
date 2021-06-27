@@ -12,15 +12,16 @@ namespace QuanLyKhachHang.DAO
     {
         private static DataProvider instance;
 
-        private string connectionStr = @"Data Source=DESKTOP-QEPRL5D;Initial Catalog=QUANLYNHAHANG;Integrated Security=True";
-
+        static string connectionStr = @"Data Source=.\sqlexpress;Initial Catalog=QUANLYNHAHANG;Integrated Security=True";
+        private static readonly SqlConnection con = new SqlConnection(connectionStr);
+        //asdasdasd
         internal static DataProvider Instance 
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { DataProvider.instance = value; }
         }
 
-        private DataProvider() { }
+        public DataProvider() { }
 
         public DataTable executeQuery(string q, object[] parameter = null)
         {
@@ -37,7 +38,7 @@ namespace QuanLyKhachHang.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
@@ -53,10 +54,13 @@ namespace QuanLyKhachHang.DAO
         public int executeNonQuery(string q, object[] parameter = null)
         {
             int data = 0;
+
             using (SqlConnection connection = new SqlConnection(connectionStr))
             {
                 connection.Open();
+
                 SqlCommand command = new SqlCommand(q, connection);
+
                 if (parameter != null)
                 {
                     string[] listPara = q.Split(' ');
@@ -65,15 +69,17 @@ namespace QuanLyKhachHang.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
                 }
-                data = command.ExecuteNonQuery();
-                connection.Close();
 
+                data = command.ExecuteNonQuery();
+
+                connection.Close();
             }
+
             return data;
         }
 
@@ -92,7 +98,7 @@ namespace QuanLyKhachHang.DAO
                     {
                         if (item.Contains('@'))
                         {
-                            command.Parameters.AddWithValue(item, listPara[i]);
+                            command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
@@ -102,6 +108,59 @@ namespace QuanLyKhachHang.DAO
 
             }
             return data;
+        }
+        internal void NonQuery(string sql, params SqlParameter[] pr)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            if (sql.Trim().Contains(' '))
+                cmd.CommandType = CommandType.Text;
+            else
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                pr.ToList().ForEach(x => cmd.Parameters.Add(x));
+            }
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public DataTable Query(string sql, params SqlParameter[] pr)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            con.Open();
+            if (sql.Trim().Contains(' '))
+                da = new SqlDataAdapter(sql, con);
+            else
+            {
+                SqlCommand cmd = new SqlCommand(sql, con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                pr.ToList().ForEach(x => cmd.Parameters.Add(x));
+                da = new SqlDataAdapter(cmd);
+            }
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
+        public String LaySTT(int autoNum)
+        {
+            if (autoNum < 10)
+                return "000" + autoNum;
+
+            else if (autoNum >= 10 && autoNum < 100)
+                return "00" + autoNum;
+
+            else if (autoNum >= 100 && autoNum < 1000)
+                return "0" + autoNum;
+
+            else if (autoNum >= 1000 && autoNum < 10000)
+                return "" + autoNum;
+
+            else
+                return "";
         }
     }
 }

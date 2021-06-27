@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace QuanLyKhachHang.DAO
 {
-
     public class PhieuYeuCauDAO
     {
         private static PhieuYeuCauDAO instance;
@@ -21,15 +20,23 @@ namespace QuanLyKhachHang.DAO
 
         private PhieuYeuCauDAO() { }
 
-        public string getPycByMaban(string maban)
+        public string getPycByMabanChuaThanhToan(string maban)
         {
             DataTable data = DataProvider.Instance.executeQuery("select * from BANAN where MABAN = '"+maban+"' and MAPYC is not null");
             if(data.Rows.Count > 0)
             {
-                PhieuYeuCau pyc = new PhieuYeuCau(data.Rows[0]);
-                return pyc.Mapyc;
+                Table table = new Table(data.Rows[0]);
+                return table.Mapyc;
             }
             return "-1";
+        }
+        public void insertPYC(string username,string maban)
+        {
+            DataProvider.Instance.executeNonQuery("exec ThemPYC @username , @maban", new object[] { username,  maban});
+        }
+        public string getMaxPYC()
+        {
+            return DataProvider.Instance.executeScalar("select max(mapyc) from phieuyeucau").ToString();
         }
     }
 }

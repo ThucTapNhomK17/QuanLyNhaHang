@@ -7,24 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyKhachHang.DAO;
+using QuanLyKhachHang.DTO;
+using QuanLyKhachHang.GUI.UserControls;
+
 
 namespace QuanLyKhachHang
 {
     public partial class Add_BanAn : Form
     {
-        public Add_BanAn()
-        {
-            InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }
