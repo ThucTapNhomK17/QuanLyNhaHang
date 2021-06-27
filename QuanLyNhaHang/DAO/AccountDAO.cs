@@ -22,6 +22,7 @@ namespace QuanLyKhachHang.DAO
         public static string username;
         public static string hoten;
         public static string phanquyen;
+        //assd
         public bool Login(string user, string pass)
         {
             string q = "select * from TAIKHOAN where USERNAME = @user and PASSWORD = @pass";
