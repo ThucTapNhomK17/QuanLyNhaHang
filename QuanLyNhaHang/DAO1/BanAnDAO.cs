@@ -73,7 +73,7 @@ namespace QuanLyKhachHang.DAO
             end*/
         public bool XoaBan(string ma)
         {
-            string query = string.Format("DELETE BanAn where MaBan='{0}'", ma);
+            string query = string.Format("update BanAn set sochongoi = 0 where MaBan='{0}'", ma);
             int result = DataProvider.Instance.executeNonQuery(query);
             return result > 0;
         }

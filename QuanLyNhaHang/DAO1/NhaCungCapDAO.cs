@@ -54,11 +54,5 @@ namespace QuanLyKhachHang.DAO
             DataTable data = DataProvider.Instance.executeQuery("select * from NHACUNGCAP where TENNCC = '"+tenncc+"'");
             return data;
         }
-        public bool DeleteNCC(string mancc)
-        {
-            string query = string.Format("Delete from NHACUNGCAP where MANCC = '{0}'", mancc);
-            int result = DataProvider.Instance.executeNonQuery(query);
-            return result > 0;
-        }
     }
 }

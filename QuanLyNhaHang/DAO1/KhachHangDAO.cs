@@ -68,12 +68,5 @@ namespace QuanLyKhachHang.DAO
             KhachHang kh = new KhachHang(table.Rows[0]);
             return kh;
         }
-        public bool DeleteKH(string makh)
-        {
-            string query1 = string.Format("Update KHACHHANG set MAKH='' where MAKH = '{0}'", makh);
-            string query2 = string.Format("Delete from KHACHHANG where MAKH = '{0}'", makh);
-            int result = DataProvider.Instance.executeNonQuery(query2);
-            return result > 0;
-        }
     }
 }

@@ -37,21 +37,21 @@ namespace QuanLyKhachHang.GUI.UserControls.DanhMuc
             loadLoaiMon();
         }
 
-        //private void btnNhanVien_Click(object sender, EventArgs e)
-        //{
-        //    pageDanhMuc.SelectTab(2);
-        //    LoadListAllNV();
-        //}
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            pageDanhMuc.SelectTab(2);
+            LoadListAllNV();
+        }
 
         private void btnBan_Click(object sender, EventArgs e)
         {
-            pageDanhMuc.SelectTab(2);
+            pageDanhMuc.SelectTab(3);
             LoadBanAn();
         }
 
         private void btnNguyenLieu_Click(object sender, EventArgs e)
         {
-            pageDanhMuc.SelectTab(3);
+            pageDanhMuc.SelectTab(4);
             Load_NL();
         }
 
@@ -343,6 +343,8 @@ namespace QuanLyKhachHang.GUI.UserControls.DanhMuc
         //    f.txtLuong.Text = "";
         //    f.txtChucVu.Text = "";
         //    f.btnLuuNV.Text = "Thêm NV";
+        //    f.txtGioiTinh.Enabled = true;
+        //    f.txtChucVu.Enabled = true;
         //    f.ShowDialog();
         //    dtgvNV.DataSource = DAO.NhanVienDAO.Instance.GetListNV();
         //}
@@ -637,24 +639,8 @@ namespace QuanLyKhachHang.GUI.UserControls.DanhMuc
         }
         private void Load_Lai_NL()
         {
-            ClearAllBindingsNguyenLieu();
             bunifuCustomDataGridNL.DataSource = NguyenLieuDAO.Instance.getNguyeLieuList();
-            NgLieuBinding();
 
-        }
-        void NgLieuBinding()
-        {
-            bunifuTextBoxMaNL.DataBindings.Add(new Binding("text", bunifuCustomDataGridNL.DataSource, "MANL"));
-            bunifuTextBoxTenNL.DataBindings.Add(new Binding("text", bunifuCustomDataGridNL.DataSource, "TENNL"));
-            bunifuTextBoxDVT.DataBindings.Add(new Binding("text", bunifuCustomDataGridNL.DataSource, "DVT"));
-            bunifuTextBoxDonGia.DataBindings.Add(new Binding("text", bunifuCustomDataGridNL.DataSource, "DONGIA"));
-            bunifuTextBoxSoLuong.DataBindings.Add(new Binding("text", bunifuCustomDataGridNL.DataSource, "SOLUONG"));
-           
-        }
-        void ClearAllBindingsNguyenLieu()
-        {
-            foreach (Control c in groupBox7.Controls)
-                c.DataBindings.Clear();
         }
         private void DisEnabledNL(bool a)
         {
@@ -737,7 +723,9 @@ namespace QuanLyKhachHang.GUI.UserControls.DanhMuc
         private void BtnXoaNguyenLieu_Click(object sender, EventArgs e)
         {
             string ma = bunifuTextBoxMaNL.Text;
-            if (MessageBox.Show("Bạn có thực sự muốn xoá nguyên liệu này?", "Xác nhận", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            string ten = bunifuTextBoxTenNL.Text;
+            DialogResult result = MessageBox.Show("Bạn chắc chắm muốn xóa Nguyên Liệu: " + ten + " có mã là " + ma + " này chứ?", "Cảnh Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult.Yes == result)
             {
                 if (NguyenLieuDAO.Instance.XoaNL(ma))
                 {

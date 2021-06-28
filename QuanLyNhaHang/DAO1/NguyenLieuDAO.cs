@@ -65,7 +65,11 @@ namespace QuanLyKhachHang.DAO
           end*/
         public bool XoaNL(string ma)
         {
-            string query = string.Format("Delete from NGUYENLIEU where MANL = '{0}'", ma);
+            string ten = "Nguyên Liệu Này Đã Xóa";
+            string dvt = "";
+            int dongia = 0;
+            int soluong = 0;
+            string query = string.Format("[dbo].[updateNL] N'{0}',N'{1}',N'{2}',{3},{4}", ma, ten, dvt, dongia, soluong);
             int result = DataProvider.Instance.executeNonQuery(query);
             return result > 0;
         }

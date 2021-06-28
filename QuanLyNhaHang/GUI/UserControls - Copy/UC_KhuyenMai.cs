@@ -70,14 +70,13 @@ namespace QuanLyKhachHang.UserControls
         private void btnThemKM_Click(object sender, EventArgs e)
         {
             txtMaKM.Text = DataProvider.Instance.executeScalar("select dbo.TAOMAKM()").ToString();
-            btnThemKM.Enabled = false;
             btnSuaKM.Enabled = false;
             btnXoaKM.Enabled = false;
             btnLuuKM.Enabled = true;
             btnHuyKM.Enabled = true;
             txtPhanTram.Clear();
             txtMaKM.Enabled = false;
-            txtNgayKetThuc.Value = Convert.ToDateTime(txtNgayBatDau.Text);
+            //txtNgayKetThuc.Value = Convert.ToDateTime(txtNgayBatDau.Text);
             luunv = "themkm";
             txtNgayBatDau.Value = new DateTime(today.Year, today.Month, today.Day);
             txtNgayKetThuc.Value = new DateTime(today.Year, today.Month, today.Day);
@@ -124,13 +123,13 @@ namespace QuanLyKhachHang.UserControls
             if (CheckKM() && (luunv == "themkm"))
             {
                 string makm = txtMaKM.Text;
-                string ngaybatdau = txtNgayBatDau.Value.ToString("yyyy-MM-dd");
-                string ngayketthuc = txtNgayKetThuc.Value.ToString("yyyy-MM-dd");
+                string ngaybatdau = txtNgayBatDau.Text;
+                string ngayketthuc = txtNgayKetThuc.Text;
                 decimal phantram = Convert.ToDecimal(txtPhanTram.Text);
                 if (DAO.KhuyenMaiDAO.Instance.ThemKM(makm, ngaybatdau, ngayketthuc, phantram))
                 {
                     MessageBox.Show("Thêm mới thành công");
-                    reLoad();
+                    LoadKMList();
                 }
                 else
                 {
@@ -140,13 +139,13 @@ namespace QuanLyKhachHang.UserControls
             else if (CheckKM() && (luunv == "suakm"))
             {
                 string makm = txtMaKM.Text;
-                string ngaybatdau = txtNgayBatDau.Value.ToString("yyyy-MM-dd");
-                string ngayketthuc = txtNgayKetThuc.Value.ToString("yyyy-MM-dd");
+                string ngaybatdau = txtNgayBatDau.Text;
+                string ngayketthuc = txtNgayKetThuc.Text;
                 decimal phantram = Convert.ToDecimal(txtPhanTram.Text);
                 if (DAO.KhuyenMaiDAO.Instance.SuaKM(makm, ngaybatdau, ngayketthuc, phantram))
                 {
                     MessageBox.Show("Sửa thành công");
-                    reLoad();
+                    LoadKMList();
                 }
                 else
                 {
