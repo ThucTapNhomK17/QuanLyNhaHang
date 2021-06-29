@@ -452,7 +452,7 @@ namespace QuanLyKhachHang.GUI.UserControls.DanhMuc
         {
             a = "them";
             disEnabledBanAn(false);
-            bunifuTextBoxmabanan.Text = "Ban" + DataProvider.Instance.LaySTT(bunifuCustomDataGridBanAn.Rows.Count);
+            bunifuTextBoxmabanan.Text = DataProvider.Instance.LaySTT(bunifuCustomDataGridBanAn.Rows.Count);
             bunifuTextBoxsochongoi.Text = "";
         }
 
